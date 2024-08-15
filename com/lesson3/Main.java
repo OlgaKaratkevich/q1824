@@ -11,9 +11,9 @@ public class Main {
         fibonacci.generateFibonacciArray(n);
 
         MinPlusMax minPlusMax = new MinPlusMax();
-        minPlusMax.minMax(args);
+        minPlusMax.minMax();
 
         EvenSumAndOddSumDiff evenSumAndOddSumDiff = new EvenSumAndOddSumDiff();
-        evenSumAndOddSumDiff.findDiff(args);
+        evenSumAndOddSumDiff.findDiff();
     }
 }

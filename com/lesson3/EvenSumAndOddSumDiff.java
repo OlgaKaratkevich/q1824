@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class EvenSumAndOddSumDiff {
 
-    public void findDiff(String[] args) {
+    public void findDiff() {
         System.out.println("Введите количество элементов массива");
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();

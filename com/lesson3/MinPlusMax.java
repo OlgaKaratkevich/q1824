@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class MinPlusMax {
-    public static void minMax(String[] args) {
+    public static void minMax() {
         System.out.println("Введите количество элементов массива");
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();
