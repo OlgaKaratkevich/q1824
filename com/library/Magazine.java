@@ -1,17 +1,36 @@
 package com.library;
 
-public class Magazine extends Product{
+public class Magazine extends Item{
+    protected int year;
 
-    protected int number;
-
-    public Magazine(String name, int quantity, int number) {
-        super(name, quantity);
-        this.number=number;
+    public Magazine(String name, int year) {
+        super(name);
+        this.year = year;
     }
+
 
     @Override
     public void displayInfo() {
-        System.out.println("Name: " + name + "\nNumber: " + number + "\nIn stock: " + quantity +
-        "\n");
+        System.out.println("Журнал: " + name + " Год выпуска: " + year + " Доступен: " + available);
     }
+
+    @Override
+    public void borrow() {
+        if (available){
+            available = false;
+            System.out.println("Журнал " + name  + " выдан");
+        }
+        else {
+            System.out.println("Журнал " + name + " недступен");
+        }
+    }
+
+    @Override
+    public void returnItem() {
+        available = true;
+        System.out.println("Журнал " + name +" возвращен");
+    }
+
+
 }
+

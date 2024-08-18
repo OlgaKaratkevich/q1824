@@ -1,14 +1,67 @@
 package com.library;
 
 public class Library {
-    public static void main(String[] args) {
-        Product book = new Book("Book", "Author", 8, 210);
-        book.displayInfo();
-        Product magazine = new Magazine("Magazine", 10, 10);
-        magazine.displayInfo();
-        Customer customer1 = new Customer("Vasya", "Vasya@email.com");
-        customer1.displayInfo();
-        Order order1 = new Order(customer1, book, 3);
-        order1.processOrder();
+    private Item[] items;
+    private int itemCount;
+
+    public Library(int capacity){
+        this.items = new Item[capacity];
+        this.itemCount = 0;
     }
+
+    public void addItem(Item item){
+        if(itemCount<items.length){
+            items[itemCount] = item;
+            itemCount++;
+            System.out.println("Добавлено: " +item.getName());
+        }
+        else {
+            System.out.println("Библиотека заполена");
+        }
+    }
+
+    public void displayAvailableItems(){
+        for (int i =0;i<itemCount;i++){
+            if (items[i].isAvailable()){
+                items[i].displayInfo();
+            }
+        }
+    }
+
+    public void borrowItem(String name){
+        for(int i=0;i<itemCount;i++){
+            if(items[i].getName().equals(name)){
+                items[i].borrow();
+                break;
+            }else {
+                System.out.println("Элемент не найден в библиотеке");
+                break;
+            }
+        }
+    }
+
+
+    public void returnItem(String name){
+        for(int i=0;i<itemCount;i++){
+            if(items[i].getName().equals(name)){
+                items[i].returnItem();
+                break;
+            }else {
+                System.out.println(name + " не из нашей библиотеки");
+                break;
+            }
+        }
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
